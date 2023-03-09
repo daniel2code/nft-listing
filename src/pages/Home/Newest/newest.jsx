@@ -7,12 +7,13 @@ import {
   Modal
 } from "../../../components/components";
 import useModal from "../../../hooks/useModal";
-import { fetchNfts } from "../../../utils/retrieveNft";
+import { useFetchNft } from "../../../hooks/useFetchNft"
 
 const Newest = () => {
   const { isVisible, toggleModal } = useModal();
+  const { data } = useFetchNft()
 
-  console.log(fetchNfts())
+  console.log(data)
 
   return (
     <SectionLayout border={true}>
