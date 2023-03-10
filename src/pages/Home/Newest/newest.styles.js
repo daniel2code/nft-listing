@@ -18,6 +18,12 @@ export const NewestBox = styled.div`
     .header-btn {
       width: 120px;
     }
+
+    @media screen and (max-width: 600px) {
+      .header-text {
+        font-size: 25px;
+      }
+    }
   }
 
   .newest-card-box {

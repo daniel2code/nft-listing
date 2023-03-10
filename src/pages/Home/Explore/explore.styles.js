@@ -15,12 +15,18 @@ export const ExploreBox = styled.div`
       color: var(--alturaTextColorOne);
     }
 
-    .header-btn{
-        width: 120px;
+    .header-btn {
+      width: 120px;
+    }
+
+    @media screen and (max-width: 600px) {
+      .header-text {
+        font-size: 25px;
+      }
     }
   }
 
-  .explore-card-box{
+  .explore-card-box {
     margin: 30px 0px;
     display: flex;
     justify-content: space-between;

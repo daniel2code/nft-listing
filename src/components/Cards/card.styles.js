@@ -69,6 +69,12 @@ export const CardBox = styled.div`
       font-weight: 600;
     }
   }
+
+  @media screen and (max-width: 550px){
+    max-width: 100%;
+    width: 99%;
+    min-width: 90%;
+  }
 `;
 
 export const BidderImg = styled.img`

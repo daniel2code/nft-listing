@@ -80,8 +80,10 @@ const Footer = () => {
         <div className="footer-cc">
           <div className="cc-text-box">
             <p className="cc-text">©2022 Altura, Inc. All rights reserved.</p>
-            <p className="cc-menu">Terms</p>
-            <li className="cc-menu">Privacy Policy</li>
+            <div className="cc-menu-box">
+              <p className="cc-menu">Terms</p>
+              <li className="cc-menu">Privacy Policy</li>
+            </div>
           </div>
 
           <div className="footer-socials">

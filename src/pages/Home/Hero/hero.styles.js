@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const HeroContainer = styled.div`
   width: 100%;
   display: flex;
-  height: calc(100vh - 180px);
+  min-height: calc(100vh - 180px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,10 +14,24 @@ export const HeroContainer = styled.div`
     width: 100%;
     justify-content: space-between;
     align-items: center;
+
+    @media screen and (max-width: 900px) {
+      flex-direction: column-reverse;
+
+      .content {
+        width: 100%;
+        margin-top: 50px;
+      }
+
+      .bg-img {
+        width: 100%;
+      }
+    }
   }
 
   .content {
     width: 50%;
+
     .head-text {
       width: 80%;
       font-size: 60px;
@@ -44,6 +58,25 @@ export const HeroContainer = styled.div`
       .btn1 {
         width: 170px;
         margin-left: 20px;
+      }
+    }
+
+    @media screen and (max-width: 900px) {
+      .head-text {
+        width: 100%;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .head-text {
+        width: 100%;
+        font-size: 35px;
+      }
+
+      .sub-text{
+        width: 95%;
+        font-size: 18px;
+        line-height: 22px;
       }
     }
   }

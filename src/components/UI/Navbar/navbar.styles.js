@@ -40,6 +40,12 @@ export const NavbarBox = styled.nav`
       list-style: none;
       font-weight: 500px;
     }
+
+    @media screen and (max-width: 800px) {
+      .menu-list {
+        display: none;
+      }
+    }
   }
 
   .search {
@@ -58,6 +64,22 @@ export const NavbarBox = styled.nav`
 
     .icon-box {
       margin-left: 15px;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    .input-box {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    .search {
+      display: none;
+    }
+
+    .menu-list {
+      display: none;
     }
   }
 `;

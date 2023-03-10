@@ -6,6 +6,10 @@ export const FooterBox = styled.footer`
   .footer-parent {
     display: flex;
     justify-content: space-between;
+
+    @media screen and (max-width: 750px) {
+      flex-wrap: wrap;
+    }
   }
 
   .footer-item {
@@ -52,6 +56,11 @@ export const FooterBox = styled.footer`
           height: 60px;
           width: 60px;
           border-radius: 50%;
+
+          @media screen and (max-width: 350px) {
+            width: 35px;
+            height: 35px;
+          }
         }
 
         .sold-content {
@@ -78,10 +87,18 @@ export const FooterBox = styled.footer`
         }
       }
     }
+
+    @media screen and (max-width: 750px) {
+      width: 48%;
+      margin-top: 25px;
+    }
+
+    @media screen and (max-width: 750px) {
+      /* width: 99%; */
+    }
   }
 
-
-  .footer-cc{
+  .footer-cc {
     display: flex;
     padding-top: 30px;
     margin-top: 50px;
@@ -89,26 +106,55 @@ export const FooterBox = styled.footer`
     align-items: center;
     border-top: 1px solid var(--borderColor);
 
-    .cc-text-box{
-        display: flex;
+    .cc-text-box {
+      display: flex;
     }
-    .cc-text{
-        color: var(--alturaTextColorTwo);
-        padding-right: 20px;
-        border-right: 1px solid var(--borderColor);
+    .cc-text {
+      color: var(--alturaTextColorTwo);
+      padding-right: 20px;
+      border-right: 1px solid var(--borderColor);
     }
 
-    .cc-menu{
-        padding-left: 15px;
-        color: var(--alturaTextColorTwo);
+    .cc-menu {
+      padding-left: 15px;
+      color: var(--alturaTextColorTwo);
+    }
+
+    .cc-menu-box {
+      display: flex;
+    }
+
+    @media screen and (max-width: 750px) {
+      flex-direction: column-reverse;
+
+      .cc-text-box {
+        margin-top: 20px;
+      }
+    }
+
+    @media screen and (max-width: 550px) {
+      .cc-text-box {
+        flex-direction: column-reverse;
+      }
+
+      .cc-menu-box {
+        margin: 0px 0px 20px 0px;
+        justify-content: center;
+      }
+
+      .cc-text {
+        padding-right: 0px;
+        border: none;
+        text-align: center;
+      }
     }
   }
 
-  .footer-socials{
+  .footer-socials {
     display: flex;
 
-    .social{
-        margin: 0px 10px;
+    .social {
+      margin: 0px 10px;
     }
   }
 `;
