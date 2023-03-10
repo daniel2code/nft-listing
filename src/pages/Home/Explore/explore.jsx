@@ -5,10 +5,13 @@ import {
   Button,
   PrimaryCard,
 } from "../../../components/components";
+import { useFetch } from "../../../hooks/useFetchNft";
 
 const Explore = () => {
+  const { data } = useFetch();
+
   return (
-    <SectionLayout border={true} >
+    <SectionLayout border={true}>
       <ExploreBox>
         <div className="explore-header">
           <p className="header-text">Explore Product</p>
@@ -18,8 +21,16 @@ const Explore = () => {
         </div>
 
         <div className="explore-card-box">
-          {[...Array(10)].map(() => {
-            return <PrimaryCard />;
+          {data?.slice(6, 16).map((item) => {
+            return (
+              <PrimaryCard
+                name={item?.contract.name}
+                img={item.contract.openSea.imageUrl}
+                price={item.contract.openSea.floorPrice}
+                address={item.contract.address}
+                desc={item.contract.openSea.description}
+              />
+            );
           })}
         </div>
       </ExploreBox>

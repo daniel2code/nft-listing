@@ -1,24 +1,37 @@
-import axios from "axios";
-import { useState } from "react";
+import { Network, Alchemy } from "alchemy-sdk";
+import { useState, useEffect } from "react";
 
-export const useFetchNft = () => {
+const settings = {
+  apiKey: "01DqszJnhp3PgHE3_9LlO_p8DykcMfIF",
+  network: Network.ETH_MAINNET,
+};
+
+const contractAddress = "0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB";
+
+const alchemy = new Alchemy(settings);
+
+// Get the latest block
+alchemy.core.getBlockNumber();
+
+// Get all outbound transfers for a provided address
+alchemy.core.getTokenBalances(contractAddress).then(console.log);
+
+export const useFetch = () => {
   const [data, setData] = useState(null);
 
-  const contractAddress = "0x51b2fA6448d22D4BF86Ef9DC2bc24a61Cc9226D5";
-  const openSeaEndpoint = "https://api.opensea.io/api/v1/assets";
+  useEffect(() => {
+    alchemy.nft
+      .getNftsForOwner(contractAddress)
+      .then((res) => setData(res.ownedNfts))
+      .catch((err) => console.log(err));
+  }, []);
 
-  axios
-    .get(
-      `${openSeaEndpoint}?owner=${contractAddress}&order_direction=desc&offset=0&limit=50`
-    )
-    .then((response) => {
-      console.log(response);
-      setData(response);
-      // Do something with the assets data, such as displaying it in a list
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-
-    return { data }
+  return { data };
 };
+// Get all the NFTs owned by an address
+
+// Listen to all new pending transactions
+alchemy.ws.on(
+  { method: "alchemy_pendingTransactions", fromAddress: contractAddress },
+  (res) => console.log(res)
+);

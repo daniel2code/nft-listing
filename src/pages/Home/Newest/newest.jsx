@@ -4,22 +4,14 @@ import {
   SectionLayout,
   Button,
   PrimaryCard,
-  Modal
 } from "../../../components/components";
-import useModal from "../../../hooks/useModal";
-import { useFetchNft } from "../../../hooks/useFetchNft"
+import { useFetch } from "../../../hooks/useFetchNft";
 
 const Newest = () => {
-  const { isVisible, toggleModal } = useModal();
-  const { data } = useFetchNft()
-
-  console.log(data)
+  const { data } = useFetch();
 
   return (
     <SectionLayout border={true}>
-      <button onClick={toggleModal}>Show modal</button>
-      <Modal isVisible={isVisible} hideModal={toggleModal} />
-
       <NewestBox>
         <div className="newest-header">
           <p className="header-text">Newest Items</p>
@@ -29,8 +21,16 @@ const Newest = () => {
         </div>
 
         <div className="newest-card-box">
-          {[...Array(5)].map(() => {
-            return <PrimaryCard />;
+          {data?.slice(0, 6).map((item) => {
+            return (
+              <PrimaryCard
+                name={item?.contract.name}
+                img={item.contract.openSea.imageUrl}
+                price={item.contract.openSea.floorPrice}
+                address={item.contract.address}
+                desc={item.contract.openSea.description}
+              />
+            );
           })}
         </div>
       </NewestBox>

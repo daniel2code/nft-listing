@@ -5,11 +5,9 @@ const web3 = new Web3(
   `https://eth-mainnet.g.alchemy.com/v2/01DqszJnhp3PgHE3_9LlO_p8DykcMfIF`
 );
 
-const contractAddress = "0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB";
+const contractAddress = "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D";
 
 const contract = new web3.eth.Contract(contractAbi, contractAddress);
-
-const nfts = [];
 
 const fetchNfts = async () => {
   const events = await contract.getPastEvents("Transfer", {
@@ -20,5 +18,9 @@ const fetchNfts = async () => {
 
   console.log(events);
 };
+
+// const { events } = fetchNfts();
+
+// const nfts = events.map((event) => event.returnValues.tokenId);
 
 export { fetchNfts };

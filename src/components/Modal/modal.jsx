@@ -7,12 +7,16 @@ import {
   BidderImg,
 } from "./modal.styles";
 import { Button } from "../components";
-import Img from "../../assets/asset1.jpg";
 import { AiOutlineClose } from "react-icons/ai";
 import { primaryCardData } from "../../utils/primaryCardData";
 import { BsFillSuitHeartFill } from "react-icons/bs";
+import { formatString } from "../../utils/formatString";
 
-const Modal = ({ isVisible, hideModal }) => {
+const Modal = ({ isVisible, hideModal, name, price, desc, img, address }) => {
+  const handleOpenLink = () => {
+    window.open(`https://opensea.io/collection/${formatString(name)}`);
+  };
+
   return isVisible
     ? createPortal(
         <React.Fragment>
@@ -34,7 +38,7 @@ const Modal = ({ isVisible, hideModal }) => {
                 />
               </div>
               <div className="modal-content">
-                <img src={Img} alt="" className="modal-img" />
+                <img src={img} alt="" className="modal-img" />
 
                 <div className="bid-list">
                   <div className="bid-img-box">
@@ -54,34 +58,27 @@ const Modal = ({ isVisible, hideModal }) => {
                 </div>
 
                 <div className="card-content">
-                  <p className="name">Diamond Dog</p>
+                  <p className="name">{name}</p>
 
-                  <p className="bid">
-                    0x0beed7099af7514ccedf642cfea435731176fb02
-                  </p>
+                  <p className="bid">{address}</p>
 
                   <div className="price-box">
-                    <p className="price">0.3452wETH</p>
+                    <p className="price">{price || "0.3452wETH"}</p>
 
                     <BsFillSuitHeartFill color="#58d0ea" size={20} />
                   </div>
                 </div>
 
-                <p className="description">
-                  Become part of one of the best-selling modern tarot decks this
-                  time. Your ownership of one of the Modern Way Tarot cards will
-                  unlock access to our exclusive tarot community where you can
-                  learn how to do tarot readings and how to build a tarot
-                  business. Youll also unlock a free tarot reading, our 194-page
-                  Tarot Guidebook, and your very own physical Modern Way tarot
-                  card deck including your NFT card! Now, with which Major
-                  Arcana archetype do you identify? Pick your card now because
-                  You are the Way
-                </p>
+                <p className="description">{desc}</p>
               </div>
 
               <div className="modal-footer">
-                <Button height="50px" width="160px" text="Purchase Here" />
+                <Button
+                  height="50px"
+                  width="160px"
+                  text="Purchase Here"
+                  onClick={handleOpenLink}
+                />
               </div>
             </SModal>
           </SModalWrapper>
