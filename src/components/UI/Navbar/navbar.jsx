@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavbarBox } from "./navbar.styles";
 import { Logo, Input, Button, Icon } from "../../components";
 import { menuData } from "../../../utils/menuData";
 import { BiSearch } from "react-icons/bi";
 import { BsBell, BsSun } from "react-icons/bs";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
+import MobileMenu from "./mobileMenu";
 
 const Navbar = () => {
+  const [menu, setMenu] = useState(false);
+
+  const handleToggleMenu = () => {
+    setMenu((prev) => !prev);
+  };
+
   return (
     <NavbarBox>
+      {menu && <MobileMenu toggle={handleToggleMenu} />}
       <div className="nav-parent">
         <div className="nav-menu">
           <div className="logo">
@@ -50,7 +58,12 @@ const Navbar = () => {
           </div>
         </div>
 
-        <HiOutlineMenuAlt3 color="#58d0ea" size={35} className="menu-icon" />
+        <HiOutlineMenuAlt3
+          color="#58d0ea"
+          size={35}
+          className="menu-icon"
+          onClick={handleToggleMenu}
+        />
       </div>
     </NavbarBox>
   );

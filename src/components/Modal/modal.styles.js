@@ -29,7 +29,6 @@ export const SModalWrapper = styled.div`
 `;
 
 export const SModal = styled.div`
-  background: white;
   border-radius: 0.25rem;
   margin: 1.875rem;
   width: 600px;
