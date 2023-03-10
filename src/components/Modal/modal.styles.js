@@ -22,6 +22,10 @@ export const SModalWrapper = styled.div`
   top: 10%;
   width: 100%;
   z-index: 1000;
+
+  @media screen and (max-width: 600px) {
+    top: 15%;
+  }
 `;
 
 export const SModal = styled.div`
@@ -110,6 +114,12 @@ export const SModal = styled.div`
       font-size: 18px;
       font-weight: 600;
     }
+
+    @media screen and (max-width: 600px) {
+      .bid {
+        word-wrap: break-word;
+      }
+    }
   }
 
   .description {
@@ -129,32 +139,17 @@ export const SModal = styled.div`
     padding: 15px;
     margin-top: 10px;
   }
+
+  @media screen and (max-width: 600px) {
+    width: 95%;
+    margin: 0px;
+    height: 550px;
+
+    .modal-img{
+      height: 300px;
+    }
+  }
 `;
-
-// export const SHeader = styled.div`
-//   align-items: center;
-//   display: flex;
-//   flex-direction: column;
-//   padding: 1.875rem 0.9375rem 1.875rem 0.9375rem;
-// `;
-
-// export const STitle = styled.h5`
-//   margin-bottom: 0.3125rem;
-// `;
-
-// export const SButton = styled.button`
-//   border-top: 1px solid #f0f0f0;
-//   color: #6d087c;
-//   cursor: pointer;
-//   font-weight: bold;
-//   padding: 0.9375rem;
-//   width: 100%;
-// `;
-
-// export const SDescription = styled.span`
-//   color: #c1c1c1;
-//   text-align: center;
-// `;
 
 export const BidderImg = styled.img`
   width: 45px;

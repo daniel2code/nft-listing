@@ -67,6 +67,10 @@ export const NavbarBox = styled.nav`
     }
   }
 
+  .menu-icon {
+    display: none;
+  }
+
   @media screen and (max-width: 1000px) {
     .input-box {
       display: none;
@@ -80,6 +84,10 @@ export const NavbarBox = styled.nav`
 
     .menu-list {
       display: none;
+    }
+
+    .menu-icon {
+      display: flex;
     }
   }
 `;

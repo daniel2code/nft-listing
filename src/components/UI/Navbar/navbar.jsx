@@ -4,6 +4,7 @@ import { Logo, Input, Button, Icon } from "../../components";
 import { menuData } from "../../../utils/menuData";
 import { BiSearch } from "react-icons/bi";
 import { BsBell, BsSun } from "react-icons/bs";
+import { HiOutlineMenuAlt3 } from "react-icons/hi";
 
 const Navbar = () => {
   return (
@@ -37,17 +38,19 @@ const Navbar = () => {
           </div>
 
           <div className="icon-box">
-            <Icon border={true} >
+            <Icon border={true}>
               <BsBell color="#acacac" />
             </Icon>
           </div>
 
           <div className="icon-box">
-            <Icon border={true} >
+            <Icon border={true}>
               <BsSun color="#acacac" />
             </Icon>
           </div>
         </div>
+
+        <HiOutlineMenuAlt3 color="#58d0ea" size={40} className="menu-icon" />
       </div>
     </NavbarBox>
   );
