@@ -29,7 +29,7 @@ const Modal = ({ isVisible, hideModal, name, price, desc, img, address }) => {
           >
             <SModal>
               <div className="header-title">
-                <p className="title">Created Mystic Motors on Feb 2023</p>
+                <p className="title">{`Created ${name} on Feb 2023`}</p>
                 <AiOutlineClose
                   size={40}
                   color="#fff"

@@ -84,6 +84,16 @@ export const FooterBox = styled.footer`
             font-weight: 600;
             margin-top: 7px;
           }
+
+          @media screen and (max-width: 550px) {
+            .name {
+              font-size: 15px;
+            }
+
+            .price{
+              font-size: 15px;
+            }
+          }
         }
       }
     }
@@ -93,8 +103,11 @@ export const FooterBox = styled.footer`
       margin-top: 25px;
     }
 
-    @media screen and (max-width: 750px) {
-      /* width: 99%; */
+    @media screen and (max-width: 600px) {
+      .list {
+        font-size: 15px;
+        margin-top: 14px !important;
+      }
     }
   }
 

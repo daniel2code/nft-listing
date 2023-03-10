@@ -50,7 +50,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <HiOutlineMenuAlt3 color="#58d0ea" size={40} className="menu-icon" />
+        <HiOutlineMenuAlt3 color="#58d0ea" size={35} className="menu-icon" />
       </div>
     </NavbarBox>
   );
